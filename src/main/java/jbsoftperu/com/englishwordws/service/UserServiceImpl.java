@@ -57,7 +57,7 @@ public class UserServiceImpl   extends GenericServiceImpl<User,Long > implements
                 found.setToken(token);
                 found.setLastLogin(new Date());
 
-                return save(found);
+                return this.save(found);
             } else {
                 return null;
             }

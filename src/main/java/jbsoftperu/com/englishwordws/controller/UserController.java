@@ -42,19 +42,27 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody BeanLogin user) {
-        try {
-                User found =  userService.login(user);
 
-                if (found == null){
-                    return new ResponseEntity<>(new Error("Error no coincide usuario y password " ), HttpStatus.BAD_REQUEST);
+        if(user.getEmail().isEmpty()){
+            return new ResponseEntity<>(new Error("Error email en blanco " ), HttpStatus.BAD_REQUEST);
+        }else{
+            if (user.getPassword().isEmpty()){
+                return new ResponseEntity<>(new Error("Error password en blanco " ), HttpStatus.BAD_REQUEST);
+            }
+            else{
+                try {
+                    User found =  userService.login(user);
+
+                    if (found == null){
+                        return new ResponseEntity<>(new Error("Error usuario y password incorrectos" ), HttpStatus.BAD_REQUEST);
+                    }
+                    else {
+                        return new ResponseEntity<>(found, HttpStatus.FOUND);
+                    }
+                } catch (Exception e) {
+                    return new ResponseEntity<>(new Error("Error en el login: " + e.getMessage()), HttpStatus.BAD_REQUEST);
                 }
-                else {
-                    return new ResponseEntity<>(found, HttpStatus.FOUND);
-                }
-
-
-        } catch (Exception e) {
-            return new ResponseEntity<>(new Error("Error en el login: " + e.getMessage()), HttpStatus.BAD_REQUEST);
+            }
         }
     }
 
