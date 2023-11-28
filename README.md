@@ -5,8 +5,8 @@
 # esperar que baje las dependencias
 # ejecutar el proyecto
 # en el navegador poner la ruta  http://localhost:8181/swagger-ui/index.html
-# se han desarrollado 6 metodos de los webservices d elos cuales los mas importantes son /api/v1/register  /api/v1/   /api/v1/login
-# primero ejecutar el endpoint post /api/v1/register para eso presione el boton try it out
+# se han desarrollado 6 metodos de los webservices d elos cuales los mas importantes son post /api/v1/  get /api/v1/   post /api/v1/login
+# primero ejecutar el endpoint post /api/v1/ para eso presione el boton try it out
 # en los datos borar ambos ids y poner la data de nombre y password
 # puede probar para los casos de correo sin formato, password vacio
 # una vez guardado se pude ver la data que se ha guardado
