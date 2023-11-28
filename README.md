@@ -20,7 +20,14 @@
 # se uso jwt para el token
 # se uso lombok para escribir menos codigo
 # se uso spring data
+# para la documentacion se uso swagger
 # se uso metodos genericos para escribir la menor cantidad de codigo
 # se uso h2 como base de datos de memoria
 # hay un scrip de h2 el cual se ejecuta automaticamente cuando se corre el proyecto
 # se usaron algunos validadores de spring pro anotacion
+
+# diagrama
+
+# se creo una carpeta diagrama en el cual se encuentra un documento word con un diagrama simplificado de la solucion 
+# tambien se encuentra imagenes del swagger levantado con los endpoint
+
