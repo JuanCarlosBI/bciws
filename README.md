@@ -23,3 +23,4 @@
 # se uso metodos genericos para escribir la menor cantidad de codigo
 # se uso h2 como base de datos de memoria
 # hay un scrip de h2 el cual se ejecuta automaticamente cuando se corre el proyecto
+# se usaron algunos validadores de spring pro anotacion
