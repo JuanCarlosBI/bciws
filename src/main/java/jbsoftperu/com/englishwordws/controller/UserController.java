@@ -21,13 +21,13 @@ public class UserController {
         try {
 
             if(user.getPassword().isEmpty() || user.getPassword().isBlank()){
-                return new ResponseEntity<>(new Error("Error password en blanco "), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(new Error("mensaje : Error password en blanco "), HttpStatus.BAD_REQUEST);
             }
             else {
                 User found =  userService.findByEmail(user.getEmail());
 
                 if (found != null){
-                    return new ResponseEntity<>(new Error("Error al registrar usuario: email encontrado"), HttpStatus.BAD_REQUEST);
+                    return new ResponseEntity<>(new Error("mensaje : Error al registrar usuario email encontrado"), HttpStatus.BAD_REQUEST);
                 }
                 else {
                     User registeredUser = userService.registerUser(user);
@@ -36,7 +36,7 @@ public class UserController {
             }
 
         } catch (Exception e) {
-            return new ResponseEntity<>(new Error("Error al registrar usuario: " + e.getMessage()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Error("mensaje : Error al registrar usuario " + e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -44,23 +44,23 @@ public class UserController {
     public ResponseEntity<Object> login(@RequestBody BeanLogin user) {
 
         if(user.getEmail().isEmpty()){
-            return new ResponseEntity<>(new Error("Error email en blanco " ), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Error("mensaje : Error email en blanco " ), HttpStatus.BAD_REQUEST);
         }else{
             if (user.getPassword().isEmpty()){
-                return new ResponseEntity<>(new Error("Error password en blanco " ), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(new Error("mensaje : Error password en blanco " ), HttpStatus.BAD_REQUEST);
             }
             else{
                 try {
                     User found =  userService.login(user);
 
                     if (found == null){
-                        return new ResponseEntity<>(new Error("Error usuario y password incorrectos" ), HttpStatus.BAD_REQUEST);
+                        return new ResponseEntity<>(new Error("mensaje : Error usuario y password incorrectos" ), HttpStatus.BAD_REQUEST);
                     }
                     else {
                         return new ResponseEntity<>(found, HttpStatus.OK);
                     }
                 } catch (Exception e) {
-                    return new ResponseEntity<>(new Error("Error en el login: " + e.getMessage()), HttpStatus.BAD_REQUEST);
+                    return new ResponseEntity<>(new Error("mensaje : Error en el login " + e.getMessage()), HttpStatus.BAD_REQUEST);
                 }
             }
         }
@@ -95,7 +95,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.delete(id);
-        return new ResponseEntity<>("Usuario eliminado correctamente", HttpStatus.OK);
+        return new ResponseEntity<>("mensaje : Usuario eliminado correctamente", HttpStatus.OK);
     }
 
 }
