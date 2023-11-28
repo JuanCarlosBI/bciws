@@ -57,7 +57,7 @@ public class UserController {
                         return new ResponseEntity<>(new Error("Error usuario y password incorrectos" ), HttpStatus.BAD_REQUEST);
                     }
                     else {
-                        return new ResponseEntity<>(found, HttpStatus.FOUND);
+                        return new ResponseEntity<>(found, HttpStatus.OK);
                     }
                 } catch (Exception e) {
                     return new ResponseEntity<>(new Error("Error en el login: " + e.getMessage()), HttpStatus.BAD_REQUEST);
